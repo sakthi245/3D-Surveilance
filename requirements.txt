@@ -1,0 +1,14 @@
+# Install torch BEFORE nerfstudio (see CONTEXT_TRANSFER.md §5.2) — pip's resolver otherwise
+# backtracks through years of old nerfstudio releases trying to satisfy torch as a transitive
+# dependency, and can land on ancient sub-dependencies that fail to build on modern toolchains.
+#
+# Install with:
+#   pip install torch==2.2.0 torchvision --index-url https://download.pytorch.org/whl/cu121
+#   pip install nerfstudio
+#
+# This file documents the pinned versions; it is not meant to be pip-installed directly in one
+# shot because of the custom --index-url required for the CUDA torch build.
+
+torch==2.2.0
+torchvision
+nerfstudio>=1.1.5
